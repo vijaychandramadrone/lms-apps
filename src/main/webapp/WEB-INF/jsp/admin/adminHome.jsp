@@ -1,0 +1,17 @@
+<%@ include file="../common/commonJs.jsp" %>
+
+<form:form name="adduser" id="adduser" method="post" novalidate="novalidate" action="/lms-app/submitAdduser" ng-controller="constantsController">
+
+	<div id="rightdata" ng-controller="adduserController">
+	  <div id="topcontent" style="margin-bottom:2px;">
+	     	<h5>{{hometab}}</h5>
+	         <div class="signout">
+	             <h5>${EmpForm.firstName} ${EmpForm.lastName}</h5>
+	            <input type = "hidden" name = "userName" value="${userName}" />
+	            <input type = "hidden" name = "empId" value="${EmpForm.id}" />
+	            <input type = "hidden" name = "selecteddata" value ={{mySelections}} />
+	            <a href="/lms-app">Sign Out</a>
+	          </div>
+	   </div>
+	</div>
+</form:form>

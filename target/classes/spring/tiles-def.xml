@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>  
+    <definition name="base.definition" template="/WEB-INF/jsp/layout/template.jsp">  
+        <put-attribute name="title" value=""></put-attribute>  
+        <put-attribute name="header" value="/WEB-INF/jsp//layout/header.jsp"></put-attribute>  
+        <put-attribute name="menu" value=""></put-attribute>  
+        <put-attribute name="body" value=""></put-attribute>  
+        <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"></put-attribute>  
+    </definition>  
+    
+    <definition name="login.definition" template="/WEB-INF/jsp/layout/logintemplate.jsp">  
+        <put-attribute name="title" value="SignIn"></put-attribute>  
+        <put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/login/login.jsp"></put-attribute>  
+        <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"></put-attribute>  
+    </definition>
+    
+    <definition extends="login.definition" name="forgotpasswordscreen">  
+        <put-attribute name="title" value="LMS-Forgot Password"></put-attribute> 
+        <put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp"></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/jsp/login/forgotPassword.jsp"></put-attribute> 
+        <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"></put-attribute>  
+    </definition>
+    
+    <definition extends="login.definition" name="resetpasswordscreen">  
+        <put-attribute name="title" value="LMS-Reset Password"></put-attribute> 
+        <put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp"></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/jsp/login/resetPassword.jsp"></put-attribute> 
+        <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"></put-attribute>  
+    </definition>  
+    
+   
+    <definition extends="login.definition" name="login" />  
+    <definition extends="login.definition" name="/" />
+    
+   
+    <definition extends="base.definition" name="admin">  
+        <put-attribute name="title" value="LMS-Admin's Menu"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/adduser.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/layout/adminmenu.jsp"></put-attribute>
+    </definition>  
+      
+    <definition extends="base.definition" name="employee">  
+        <put-attribute name="title" value="LMS-Employee-Home"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/employee/employeeHome.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="employeeHomeScreen">  
+        <put-attribute name="title" value="LMS-Employee-Home"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/employee/employeeHome.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="applyLeaveScreen">  
+        <put-attribute name="title" value="LMS-Employee-Apply Leave"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/employee/applyleave.jsp"></put-attribute> 
+    </definition>
+    
+    <definition extends="applyLeaveScreen" name="applyLeaveScreen_employee">
+     	<put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+    <definition extends="applyLeaveScreen" name="applyLeaveScreen_manager">
+        <put-attribute name="title" value="LMS-Manager-Apply Leave"></put-attribute>  
+      	<put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    <definition extends="applyLeaveScreen" name="applyLeaveScreen_admin">
+        <put-attribute name="title" value="LMS-Admin-Apply Leave"></put-attribute> 
+   		<put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="cancelLeaveScreen">  
+        <put-attribute name="title" value="LMS-Employee-Cancel Leave"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/employee/cancelLeave.jsp"></put-attribute> 
+    </definition>
+    <definition extends="cancelLeaveScreen" name="cancelLeaveScreen_employee">
+     	<put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+      <definition extends="cancelLeaveScreen" name="cancelLeaveScreen_manager">
+        <put-attribute name="title" value="LMS-Manager-Cancel Leave"></put-attribute>
+      	<put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    <definition extends="cancelLeaveScreen" name="cancelLeaveScreen_admin">
+        <put-attribute name="title" value="LMS-Admin-Cancel Leave"></put-attribute>
+   		<put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="leaveSummaryScreen">  
+        <put-attribute name="title" value="LMS-Employee-LeaveSummary"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/employee/leaveSummary.jsp"></put-attribute> 
+    </definition> 
+    
+    <definition extends="leaveSummaryScreen" name="leaveSummaryScreen_employee">
+     	<put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+      <definition extends="leaveSummaryScreen" name="leaveSummaryScreen_manager">
+        <put-attribute name="title" value="LMS-Manager-LeaveSummary"></put-attribute>
+      	<put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    <definition extends="leaveSummaryScreen" name="leaveSummaryScreen_admin">
+        <put-attribute name="title" value="LMS-Admin-LeaveSummary"></put-attribute>
+   		<put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition> 
+    
+    <definition extends="base.definition" name="changePasswordScreen">  
+        <put-attribute name="title" value="LMS-Employee-Change Password"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/employee/changePassword.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="changePasswordScreen" name="changePasswordScreen_employee">
+     	<put-attribute name="menu" value="/WEB-INF/jsp/employee/employeemenu.jsp"></put-attribute>
+    </definition>
+      <definition extends="changePasswordScreen" name="changePasswordScreen_manager">
+        <put-attribute name="title" value="LMS-Manager-Change Password"></put-attribute>
+      	<put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    <definition extends="changePasswordScreen" name="changePasswordScreen_admin">
+        <put-attribute name="title" value="LMS-Admin-Change Password"></put-attribute>
+   		<put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+  <!-- Tiles Definition for Employee Menu Screen Ends .........................................................................................................--> 
+  
+    
+    <definition extends="base.definition" name="manager">  
+        <put-attribute name="title" value="LMS-Manager-Home"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/projectmanager/managerHome.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="managerHomeScreen">  
+        <put-attribute name="title" value="LMS-Manager-Home"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/projectmanager/managerHome.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="viewLeaveRequestScreen">  
+        <put-attribute name="title" value="LMS-Manager-View Leave Requests"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/projectmanager/managerViewLeaveRequests.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="viewApprovedLeavesScreen">  
+        <put-attribute name="title" value="LMS-Manager-View Approved Leaves"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/projectmanager/managerviewApprovedLeaves.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="viewRejectedLeavesScreen">  
+        <put-attribute name="title" value="LMS-Manager-View Approved Leaves"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/projectmanager/managerViewRejectedLeaves.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="viewCancelledLeaveScreen">  
+        <put-attribute name="title" value="LMS-Manager-View Cancelled Leaves"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/projectmanager/managerViewCancelledLeaves.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/projectmanager/projectManagerMenu.jsp"></put-attribute>
+    </definition>
+    
+     <definition extends="base.definition" name="admin">  
+        <put-attribute name="title" value="LMS-Admin-Home"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminHome.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+     <definition extends="base.definition" name="adminhomeScreen">  
+        <put-attribute name="title" value="LMS-Admin-Home"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminHome.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="addUserScreen">  
+        <put-attribute name="title" value="LMS-Admin-Add User"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminAddUser.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+     <definition extends="base.definition" name="deleteUserScreen">  
+        <put-attribute name="title" value="LMS-Admin-Delete User"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminDeleteUser.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+     <definition extends="base.definition" name="modifyUserScreen">  
+        <put-attribute name="title" value="LMS-Admin-Modify User"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminModifyUser.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="setLeaveTypeScreen">  
+        <put-attribute name="title" value="LMS-Admin-Set Leave Type"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminSetLeaveType.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="setRoleScreen">  
+        <put-attribute name="title" value="LMS-Admin-Set Role"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminSetRoleType.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+    <definition extends="base.definition" name="viewLeaveScreen">  
+        <put-attribute name="title" value="LMS-Admin-Leave Corrections"></put-attribute>  
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/adminViewLeave.jsp"></put-attribute> 
+        <put-attribute name="menu" value="/WEB-INF/jsp/admin/adminMenu.jsp"></put-attribute>
+    </definition>
+    
+</tiles-definitions> 

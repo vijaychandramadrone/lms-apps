@@ -1,0 +1,117 @@
+DROP TABLE employeeleave_;
+DROP TABLE user_;
+DROP TABLE employee_;
+DROP TABLE department_;
+DROP TABLE role_;
+DROP TABLE leave_;
+DROP TABLE employeeleave_;
+
+----------------------------------------------
+
+CREATE TABLE department_
+(
+  id character varying(20) NOT NULL,
+  description character varying(45) NOT NULL,
+  CONSTRAINT department_pkey PRIMARY KEY (id )
+);
+----------------------------------------------
+CREATE TABLE role_
+(
+  id character varying(20) NOT NULL,
+  description character varying(45) NOT NULL,
+  CONSTRAINT role_pkey PRIMARY KEY (id ),
+  level smallint
+);
+----------------------------------------------
+CREATE TABLE employee_
+(
+  id character varying(10) NOT NULL,
+  first_name character varying(45) NOT NULL,
+  last_name character varying(45) NOT NULL,
+  primary_email character varying(45) NOT NULL,
+  secondary_email character varying(45),
+  date_of_join timestamp without time zone NOT NULL,
+  designation character varying(45) NOT NULL,
+  address_line1 character varying(60) NOT NULL,
+  address_line2 character varying(60),
+  city character varying(30) NOT NULL,
+  state character varying(30) NOT NULL,
+  zipcode integer NOT NULL,
+  dept_id character varying(20) NOT NULL,
+  role_id character varying(20) NOT NULL,
+  reporting_to character varying(10) NOT NULL,
+  contact_number character varying(12) NOT NULL,
+  CONSTRAINT employee_pkey PRIMARY KEY (id ),
+  
+  CONSTRAINT employee_primary_email_key UNIQUE (primary_email ),
+  
+  CONSTRAINT employee_department_id_fkey FOREIGN KEY (dept_id)
+      REFERENCES department_ (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  
+  CONSTRAINT employee_role_id_fkey FOREIGN KEY (role_id)
+      REFERENCES role_ (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+      
+   CONSTRAINT employee_reporting_to_fkey FOREIGN KEY (reporting_to)
+      REFERENCES employee_ (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION         
+);
+----------------------------------------------
+CREATE TABLE user_
+(
+  id serial NOT NULL,
+  employee_id character varying(10) NOT NULL,
+  user_name character varying(45) NOT NULL,
+  password character varying(45) NOT NULL,
+  created_date timestamp without time zone NOT NULL,
+  modified_date timestamp without time zone NOT NULL,
+  last_login_date timestamp without time zone,
+  failed_login_attempts smallint,
+  lockout boolean,
+  CONSTRAINT user_pkey PRIMARY KEY (id ),
+  CONSTRAINT user_employee_id_fkey FOREIGN KEY (employee_id)
+      REFERENCES employee_ (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT user_employee_id_key UNIQUE (employee_id ),
+  CONSTRAINT user_user_name_key UNIQUE (user_name )
+);
+---------------------------------------------
+CREATE TABLE leave_
+(
+  id character varying(20) NOT NULL,
+  description varchar(45) NOT NULL,
+  days real,
+  CONSTRAINT leave_pkey PRIMARY KEY (id )
+);
+---------------------------------------------
+
+CREATE TABLE employeeleave_
+(
+  id serial NOT NULL,
+  employee_id character varying(10) NOT NULL,
+  leave_id character varying(20) NOT NULL,
+  from_date timestamp without time zone NOT NULL,
+  to_date timestamp without time zone NOT NULL,
+  from_date_session character varying(2) NOT NULL,
+  to_date_session character varying(2) NOT NULL,
+  
+  no_of_days smallint NOT NULL,
+  reason_for_leave character varying(100),
+
+  emergeny_phone character varying(12),
+  leave_status character varying(1),
+  cancellation_comments character varying(45),
+  cancellation_date timestamp without time zone,
+  approval_date timestamp without time zone,
+  approval_comments character varying(45),
+  
+  
+  CONSTRAINT employeeleave_pkey PRIMARY KEY (id ),
+  CONSTRAINT employeeleave_employee_id_fkey FOREIGN KEY (employee_id)
+      REFERENCES employee_ (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT employeeleave_leave_id_fkey FOREIGN KEY (leave_id)
+      REFERENCES leave_ (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);

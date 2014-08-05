@@ -1,0 +1,13 @@
+com\madrone\lms\entity\EmployeeTest.class
+com\madrone\lms\entity\DepartmentTest.class
+com\madrone\lms\service\EmployeeLeaveServiceTest.class
+com\madrone\lms\service\DepartmentServiceTest.class
+com\madrone\lms\service\EmployeeServiceTest.class
+com\madrone\lms\service\UserServiceTest.class
+com\madrone\lms\service\EmailServiceTest.class
+com\madrone\lms\service\util\ServiceTestUtil.class
+com\madrone\lms\entity\LeaveTest.class
+com\madrone\lms\service\RoleServiceTest.class
+com\madrone\lms\entity\RoleTest.class
+com\madrone\lms\entity\UserTest.class
+com\madrone\lms\service\util\NewRecordsTestUtil.class
